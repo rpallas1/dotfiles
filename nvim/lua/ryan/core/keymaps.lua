@@ -52,5 +52,5 @@ end, { noremap = true, silent = true, desc = "Kill live server" })
 
 -- floating terminal
 -- Note: <c-d> will kill the terminal and a new one will be created next time it opens
-vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>Floaterminal", { desc = "Toggle floating terminal" }) -- toggle floating terminal
+vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>Floaterminal<CR>", { desc = "Toggle floating terminal" }) -- toggle floating terminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Get out of terminal mode" }) -- get out of terminal mode

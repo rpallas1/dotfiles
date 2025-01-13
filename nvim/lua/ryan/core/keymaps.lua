@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 local keymap = vim.keymap -- for conciseness
 
@@ -25,6 +26,22 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- vertical movement
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up half a page and center" }) -- move up half a page and then center on screen
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down half a page and center" }) -- move down half a page and then center on screen
+
+-- neorg commands
+keymap.set(
+  "n",
+  "<leader>nr",
+  ":Neorg return<CR>",
+  { noremap = true, silent = true, desc = "Close all open neorg files" }
+) -- close all open neorg files
+keymap.set(
+  "n",
+  "<leader>ni",
+  ":Neorg index<CR>",
+  { noremap = true, silent = true, desc = "Open default neorg index file" }
+) -- open default neorg index file
+keymap.set("i", "<C-o>", "<Plug>(neorg.itero.next-iteration)", { desc = "Iterate an item" }) -- iterate an item
+keymap.set("n", "<localleader>toc", ":Neorg toc<CR>", { desc = "Open neorg table of contents" }) -- open neorg table of contents
 
 -- run swift project
 keymap.set(
@@ -54,3 +71,6 @@ end, { noremap = true, silent = true, desc = "Kill live server" })
 -- Note: <c-d> will kill the terminal and a new one will be created next time it opens
 vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>Floaterminal<CR>", { desc = "Toggle floating terminal" }) -- toggle floating terminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Get out of terminal mode" }) -- get out of terminal mode
+
+-- insert and move to next line
+vim.keymap.set("i", "<C-o>", "<Esc>o", { noremap = true, silent = true, desc = "Insert and move to next line" })

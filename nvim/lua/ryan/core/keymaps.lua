@@ -1,6 +1,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+-- create a user command to save current buffer
+vim.api.nvim_create_user_command("W", "w", {})
+
+-- create a user command to save all buffers
+vim.api.nvim_create_user_command("Wa", "wa", {})
+
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })

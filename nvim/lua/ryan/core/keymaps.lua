@@ -46,8 +46,13 @@ keymap.set(
   ":Neorg index<CR>",
   { noremap = true, silent = true, desc = "Open default neorg index file" }
 ) -- open default neorg index file
-keymap.set("i", "<C-o>", "<Plug>(neorg.itero.next-iteration)", { desc = "Iterate an item" }) -- iterate an item
-keymap.set("n", "<localleader>toc", ":Neorg toc<CR>", { desc = "Open neorg table of contents" }) -- open neorg table of contents
+keymap.set(
+  "i",
+  "<C-o>",
+  "<Plug>(neorg.itero.next-iteration)",
+  { noremap = true, silent = true, desc = "Next neorg iteration or create/move to new line" }
+) -- next neorg iteration
+keymap.set("n", "<localleader>toc", "<cmd>Neorg toc<CR>", { desc = "Toggle neorg table of contents" }) -- toggle neorg table of contents
 
 -- run swift project
 keymap.set(
@@ -77,6 +82,3 @@ end, { noremap = true, silent = true, desc = "Kill live server" })
 -- Note: <c-d> will kill the terminal and a new one will be created next time it opens
 vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>Floaterminal<CR>", { desc = "Toggle floating terminal" }) -- toggle floating terminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Get out of terminal mode" }) -- get out of terminal mode
-
--- insert and move to next line
-vim.keymap.set("i", "<C-o>", "<Esc>o", { noremap = true, silent = true, desc = "Insert and move to next line" })

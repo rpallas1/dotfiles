@@ -29,9 +29,15 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) -- g
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) -- go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) -- open current buffer in new tab
 
+keymap.set("i", "<A-o>", "<esc>o", { desc = "Insert new line below and move to it" }) -- insert new line below
+keymap.set("i", "<C-A-o>", "<esc>O", { desc = "Insert new line above and move to it " }) -- insert new line above
+
 -- vertical movement
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up half a page and center" }) -- move up half a page and then center on screen
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down half a page and center" }) -- move down half a page and then center on screen
+
+-- telescope keymaps
+keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Search keymaps" }) -- Opens search window for keymaps
 
 -- neorg commands
 keymap.set(

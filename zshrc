@@ -28,9 +28,30 @@ bindkey '^[[B' history-search-forward
 alias ls="eza --icons=always"
 
 # ---- Zoxide (better cd) ----
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
-alias cd="z"
+# ---- Git ----
+alias gs="git status --short"
+
+alias ga="git add"
+alias gc="git commit"
+
+alias gp="git push"
+alias gu="git pull"
+
+alias gl="git log"
+alias gb="git branch"
+alias gco="git checkout"
+
+alias gi="git init"
+alias gcl="git clone"
+
+# alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
+
+# alias cd="z"
+
+# Build and host react project
+alias build-host="source ~/.utils/build-and-host.zsh"
 
 # --- Yazi Setup ---
 export EDITOR="nvim"

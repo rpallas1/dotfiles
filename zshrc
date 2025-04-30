@@ -48,7 +48,11 @@ alias gcl="git clone"
 
 # alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
 
-# alias cd="z"
+# ---- Neovim ----
+alias n="nvim"
+
+# ---- Clear ----
+alias c="clear"
 
 # Build and host react project
 alias build-host="source ~/.utils/build-and-host.zsh"

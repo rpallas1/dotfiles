@@ -34,3 +34,15 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- split windows
 opt.splitright = true -- split vertical window ot the right
 opt.splitbelow = true -- split horizontal window to the bottom
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = "󰠠 ",
+      [vim.diagnostic.severity.HINT] = " ",
+    },
+  },
+})

@@ -54,6 +54,9 @@ alias n="nvim"
 # ---- Clear ----
 alias c="clear"
 
+# ---- Exit ----
+alias e="exit"
+
 # Build and host react project
 alias build-host="source ~/.utils/build-and-host.zsh"
 

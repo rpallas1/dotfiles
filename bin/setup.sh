@@ -32,7 +32,7 @@ brew install \
 # ✅ STEP 3: Clone dotfiles repo
 # -----------------------------
 DOTFILES_DIR=~/dotfiles
-REPO_URL="git@github.com:rpallas1/dotfiles.git" 
+REPO_URL="https://github.com/rpallas1/dotfiles.git" 
 
 if [ ! -d "$DOTFILES_DIR" ]; then
   echo "📁 Cloning dotfiles repo..."

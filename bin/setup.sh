@@ -23,7 +23,11 @@ brew install \
   neovim \
   tmux \
   wezterm \
-  yazi
+  yazi \
+  zsh-autosuggestions \ 
+  zsh-syntax-highlighting \
+  zoxide \
+  eza
 
 # Optional: install other CLI tools you use regularly
 # brew install ripgrep fzf bat fd zoxide starship

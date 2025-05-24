@@ -12,6 +12,9 @@ else
   HOMEBREW_PREFIX=/usr/local
 fi
 
+# Update PATH to include Homebrew binaries
+export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+
 # Load Powerlevel10k theme
 source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 

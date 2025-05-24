@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 # -----------------------------
@@ -13,24 +12,10 @@ else
 fi
 
 # -----------------------------
-# ✅ STEP 2: Install packages
+# ✅ STEP 2: Install brew packages
 # -----------------------------
-echo "📦 Installing packages..."
-
-brew install \
-  git \
-  stow \
-  neovim \
-  tmux \
-  wezterm \
-  yazi \
-  zsh-autosuggestions \ 
-  zsh-syntax-highlighting \
-  zoxide \
-  eza
-
-# Optional: install other CLI tools you use regularly
-# brew install ripgrep fzf bat fd zoxide starship
+brew bundle --file=~/dotfiles/Brewfile
+echo "✅ Brew packages installed."
 
 # -----------------------------
 # ✅ STEP 3: Clone dotfiles repo
@@ -56,7 +41,29 @@ stow zsh tmux nvim wezterm yazi
 echo "🎉 Setup complete!"
 
 # -----------------------------
-# ✅ STEP 5: Set zsh as default shell
+# ✅ STEP 5: Install TPM (Tmux Plugin Manager) 
+# -----------------------------
+TPM_DIR=~/.tmux/plugins/tpm
+if [ ! -d "$TPM_DIR" ]; then
+  echo "📦 Installing TPM (Tmux Plugin Manager)..."
+  git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+else
+  echo "✅ TPM already installed."
+fi
+
+# Install tmux plugins automatically
+if command -v tmux &>/dev/null; then
+  echo "🔌 Installing tmux plugins via TPM..."
+  tmux new-session -d -s __tpm_install 'sleep 1'
+  "$TPM_DIR/bin/install_plugins"
+  tmux kill-session -t __tpm_install
+  echo "✅ tmux plugins installed."
+else
+  echo "⚠️ tmux is not installed, skipping plugin installation."
+fi
+
+# -----------------------------
+# ✅ STEP 6: Set zsh as default shell
 # -----------------------------
 echo "🛠 Setting zsh as the default shell..."
 if [ "$SHELL" != "/bin/zsh" ]; then

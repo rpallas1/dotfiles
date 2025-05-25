@@ -1,6 +1,3 @@
-# Homebrew Taps
-tap "homebrew/cask-fonts"
-
 # CLI Utilities
 brew "git"
 brew "npm"
@@ -17,7 +14,7 @@ brew "fzf"
 brew "ripgrep"
 
 # Terminal Emulator
-brew "wezterm"
+cask "wezterm"
 
 # Powerlevel10k prompt theme
 brew "powerlevel10k"

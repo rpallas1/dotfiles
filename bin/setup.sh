@@ -1,6 +1,21 @@
 #!/bin/bash
 set -e
 
+# Detect Homebrew prefix directly, not relying on .zshrc
+if [[ -d /opt/homebrew ]]; then
+  HOMEBREW_PREFIX=/opt/homebrew
+elif [[ -d /usr/local ]]; then
+  HOMEBREW_PREFIX=/usr/local
+else
+  HOMEBREW_PREFIX=""
+fi
+
+# Add to PATH for this script's execution
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+  export PATH="$HOMEBREW_PREFIX/sbin:$PATH"
+fi
+
 # -----------------------------
 # ✅ STEP 1: Install Homebrew
 # -----------------------------
@@ -14,8 +29,26 @@ fi
 # -----------------------------
 # ✅ STEP 2: Install brew packages
 # -----------------------------
+echo "🍺 Installing Brew packages..."
+
+set +e  # Disable immediate exit on error just for this step
 brew bundle --file=~/dotfiles/Brewfile
-echo "✅ Brew packages installed."
+BUNDLE_EXIT_CODE=$?
+set -e  # Re-enable exit-on-error for later steps
+
+if [ $BUNDLE_EXIT_CODE -ne 0 ]; then
+  echo "⚠️  brew bundle failed to install all packages from your Brewfile."
+  echo "Check the output above for errors (e.g. conflicting taps, missing formulas, etc)."
+  echo "You may want to fix the Brewfile, run 'brew doctor', or manually install missing packages."
+
+  read -p "Do you want to continue with the rest of the setup anyway? (y/N): " CONTINUE
+  if [[ ! "$CONTINUE" =~ ^[Yy]$ ]]; then
+    echo "Exiting setup. You can fix the Brewfile and re-run this script."
+    exit 1
+  fi
+fi
+
+echo "✅ Brew packages step finished."
 
 # -----------------------------
 # ✅ STEP 3: Clone dotfiles repo
@@ -38,8 +71,6 @@ cd "$DOTFILES_DIR"
 echo "🔗 Running stow for dotfiles..."
 stow zsh tmux nvim wezterm yazi
 
-echo "🎉 Setup complete!"
-
 # -----------------------------
 # ✅ STEP 5: Install TPM (Tmux Plugin Manager) 
 # -----------------------------
@@ -49,17 +80,6 @@ if [ ! -d "$TPM_DIR" ]; then
   git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 else
   echo "✅ TPM already installed."
-fi
-
-# Install tmux plugins automatically
-if command -v tmux &>/dev/null; then
-  echo "🔌 Installing tmux plugins via TPM..."
-  tmux new-session -d -s __tpm_install 'sleep 1'
-  "$TPM_DIR/bin/install_plugins"
-  tmux kill-session -t __tpm_install
-  echo "✅ tmux plugins installed."
-else
-  echo "⚠️ tmux is not installed, skipping plugin installation."
 fi
 
 # -----------------------------
@@ -73,4 +93,25 @@ else
   echo "ℹ️ zsh is already the default shell."
 fi
 
-echo "🎉 Setup complete!"
+echo ""
+echo "=============================================="
+echo " 🚀 NEXT STEPS"
+echo "=============================================="
+echo ""
+echo "1. ♻️  Restart your terminal, open WezTerm, or reload Zsh to activate all changes:"
+echo "   exec zsh"
+echo ""
+echo "2. 🧩 Install Neovim plugins (LazyVim):"
+echo "   Open Neovim with: nvim"
+echo "   On first launch, plugins will sync automatically."
+echo "   Or run manually inside Neovim: :Lazy sync"
+echo ""
+echo "3. 🔌 Install Tmux plugins:"
+echo "   Start tmux: tmux"
+echo "   Then press the prefix key (Ctrl+a), then capital 'I' (Shift+i):"
+echo "     Ctrl + a, then I"
+echo ""
+echo "   This will install all your tmux plugins."
+echo ""
+echo "✨ You’re all set! Enjoy your new terminal environment."
+echo ""

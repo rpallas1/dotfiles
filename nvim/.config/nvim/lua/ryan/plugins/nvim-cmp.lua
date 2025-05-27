@@ -72,6 +72,7 @@ return {
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
         { name = "lazydev", group_index = 0 }, --lazydev for lua
+        { name = "render-markdown" }, -- render-markdown for markdown
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu

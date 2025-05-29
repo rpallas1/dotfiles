@@ -12,14 +12,20 @@ else
   HOMEBREW_PREFIX=/usr/local
 fi
 
+# Conditionally load p10k if VSCode is being used
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  PROMPT = "%n@%m:%~%# "
+else
+  # Load Powerlevel10k theme
+  source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+
+  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
+
 # Update PATH to include Homebrew binaries
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
-# Load Powerlevel10k theme
-source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

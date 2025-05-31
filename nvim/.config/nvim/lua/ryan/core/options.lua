@@ -35,6 +35,16 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window ot the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
+if vim.fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true -- enable smooth scrolling
+  opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()" -- use custom fold expression
+  opt.foldmethod = "expr" -- use expression for folding
+  opt.foldtext = ""
+else
+  opt.foldmethod = "indent" -- use indent for folding
+  opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+end
+
 vim.diagnostic.config({
   virtual_text = true,
   signs = {

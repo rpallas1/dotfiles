@@ -37,6 +37,7 @@ return {
         "vimdoc",
         "swift",
         "norg",
+        "python",
       },
       incremental_selection = {
         enable = true,

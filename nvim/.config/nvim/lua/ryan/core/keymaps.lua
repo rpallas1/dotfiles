@@ -90,4 +90,7 @@ vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>Floaterminal<CR>", { desc = "To
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Get out of terminal mode" }) -- get out of terminal mode
 
 -- obsidian.nvim keymaps
-vim.keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Switch/create note" }) -- switch/create Obsidian note
+vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick switch note" }) -- switch/create Obsidian note
+vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create new Obsidian note" }) -- create new Obsidian note
+vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian vault" }) -- search Obsidian vault
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Search Obsidian tags" }) -- search Obsidian tags

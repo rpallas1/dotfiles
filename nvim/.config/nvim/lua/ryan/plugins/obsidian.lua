@@ -30,6 +30,7 @@ return {
     -- Required.
     "nvim-lua/plenary.nvim",
   },
+
   opts = {
     workspaces = {
       {
@@ -89,6 +90,7 @@ return {
 
       return final_path:with_suffix(".md")
     end,
+
+    ui = { enable = false }, -- disable the UI, since we use the `:ObsidianOpen` command to open notes
   },
-  ui = { enable = false }, -- disable the UI, since we use the `:ObsidianOpen` command to open notes
 }

@@ -94,3 +94,7 @@ vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quic
 vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create new Obsidian note" }) -- create new Obsidian note
 vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian vault" }) -- search Obsidian vault
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Search Obsidian tags" }) -- search Obsidian tags
+
+-- Intercept home row mod (Option + "n", "t") key presses
+vim.keymap.set("i", "<M-t>", "<Nop>", { noremap = true, silent = true, desc = "" })
+vim.keymap.set("i", "<M-n>", "<Nop>", { noremap = true, silent = true, desc = "" })

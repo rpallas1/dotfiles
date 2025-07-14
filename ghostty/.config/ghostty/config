@@ -1,0 +1,33 @@
+font-size = 15
+font-feature = -liga
+font-thicken-strength = 50
+adjust-cell-height = 5%
+adjust-cell-width = 0%
+font-family = MesloLGS Nerd Font Mono
+font-family-bold = MesloLGS Nerd Font Mono Medium
+font-family-italic = MesloLGS Nerd Font Mono Italic
+font-family-bold-italic = MesloLGS Nerd Font Mono Medium Italic
+# theme = /Users/ryanpallas/.local/share/nvim/lazy/tokyonight.nvim/extras/ghostty/tokyonight_storm 
+# theme = Tomorrow Night Burns
+theme = /Users/ryanpallas/.config/ghostty/theme
+cursor-style = block
+background-opacity = 0.90
+background-blur-radius = 10
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+window-padding-balance = true
+window-save-state = always
+macos-titlebar-style = transparent
+macos-titlebar-proxy-icon = hidden
+window-colorspace = "display-p3"
+window-decoration = false
+
+#other
+copy-on-select = clipboard
+
+#shaders
+# custom-shader = /Users/ryanpallas/.config/ghostty/shaders/cursor_smear.glsl
+# custom-shader = /Users/ryanpallas/.config/ghostty/shaders/new_cursor_smear.glsl
+# custom-shader = /Users/ryanpallas/.config/ghostty/shaders/bettercrt.glsl
+# custom-shader = /Users/ryanpallas/.config/ghostty/shaders/tft.glsl
+# custom-shader = /Users/ryanpallas/.config/ghostty/shaders/startfield-colors.glsl

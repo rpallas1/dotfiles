@@ -69,7 +69,7 @@ cd "$DOTFILES_DIR"
 # ✅ STEP 4: Use stow for configs
 # -----------------------------
 echo "🔗 Running stow for dotfiles..."
-stow zsh tmux nvim wezterm yazi
+stow zsh tmux nvim wezterm yazi ghostty
 
 # -----------------------------
 # ✅ STEP 5: Install TPM (Tmux Plugin Manager) 

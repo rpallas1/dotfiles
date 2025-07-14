@@ -21,3 +21,4 @@ brew "powerlevel10k"
 
 # Fonts
 cask "font-meslo-lg-nerd-font"
+cask "ghostty"

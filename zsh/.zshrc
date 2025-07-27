@@ -14,7 +14,7 @@ fi
 
 # Conditionally load p10k if VSCode is being used
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  PROMPT = "%n@%m:%~%# "
+  PROMPT="%n@%m:%~%# "
 else
   # Load Powerlevel10k theme
   source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme

@@ -35,6 +35,7 @@ return {
       })
       -- load the colorscheme here
       vim.cmd([[colorscheme tokyonight]])
+      -- vim.cmd([[colorscheme tomorrow-night-burns]])
     end,
   },
 }

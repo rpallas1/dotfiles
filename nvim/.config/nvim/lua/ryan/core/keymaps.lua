@@ -98,3 +98,5 @@ vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Search Obsi
 -- Intercept home row mod (Option + "n", "t") key presses
 vim.keymap.set("i", "<M-t>", "<Nop>", { noremap = true, silent = true, desc = "" })
 vim.keymap.set("i", "<M-n>", "<Nop>", { noremap = true, silent = true, desc = "" })
+
+vim.keymap.set("n", "<leader>so", ":update<CR> :source<CR>", { desc = "Save and source current file" }) -- save and source current file

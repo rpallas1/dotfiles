@@ -1,122 +1,228 @@
-A usable default keymap for the Ferris keyboard
-===============================================
+# Ryan's Custom Ferris Keymap
 
-Keymaps in general are quite personal, so it is difficult to come up with a default that will suit every user.
+This is a custom Colemak DH keymap optimized for macOS usage and programming workflows.
 
-This keymap makes heavy use of keys behaving differently when tapped and held, so that all the keys one may need remain accessible despite the low number of thumb keys.
+This keymap features:
 
-It comes with a number of layers to give access to most of the keys one may need on a keyboard. It is not meant to be the best possible keymap, but rather a good base on which to build a keymap that works for you.
+-   **Colemak DH base layout** for improved finger movement and comfort
+-   **5 focused layers** with clear purposes (Base, Symbols, Numbers, Navigation, Other)
+-   **Tap dance keys** for efficient punctuation input
+-   **Layer toggles** instead of holds for sustained layer access
+-   **macOS-optimized shortcuts** and media controls
+-   **Key combos** for frequent actions like vim save commands
+-   **Mod-tap keys** for space-efficient modifier access
 
-This is not the only way to make 34 keys a comfortable typing experience, but it is one way to do so. If you don't already know of a better way, this may be as good a starting point as any :)
+The layout prioritizes programming efficiency and macOS integration while maintaining comfortable typing on just 34 keys.
 
-Note that this keymap was built from the perspective that it is OK to take a steep learning curve if it results in a keymap that is easier to use in the long run. This means that it may take more effort to learn this keymap than some alternatives. "Easy to use" was assessed against the workflow of the author, so your mileage may vary on some of the details.
+## Visual Layout Overview
 
-What do all these layers do?
-----------------------------
+![System Layer](images/layer-5.png)
 
-### Layer 0: Base layer
+![Number and Navigation Layers](images/layer-3-4.png)
 
-![Layer 0](https://i.imgur.com/HjNHUPL.png)
+![Base and Symbol Layers](images/layer-1-2.png)
 
-On tapping the keys, our base layer is qwerty with space on the right homing thumb and backspace on the left homing thumb.
+## What do all these layers do?
 
-In this layer, the non-homing-thumb positions have 0 and 1. I recommend modifying this to some frequently accessed shortcut such as copy/paste, previous/next tab or anything that makes most sense in your own workflow. O and 1 are place-holders and make it easy to troubleshoot that all keys are working properly before soldering in the switches.
-The reason I recommend convenience shortcuts instead of more commonly used keys like tab or meta is that unhoming of the thumbs was a frequent source of typos for me when I used more than one thumb key frequently in the context of typing.
+# Layer Overview
 
-Despite being missing on this layer, "meta", "tab", "esc" and such are accessible from any other layer: see Layer 7.
+### Layer 0: Base Layer (Colemak DH)
 
-The behaviour of some keys differ when held:
-* Both homing pinkies behave as shift.
-* Both bottom-row ring fingers behave as ctrl.
-* Both bottom-row middle fingers behave as alt.
+```
+Q  W  F  P  B     J  L  U  Y  BSPC
+A  R  S  T  G     M  N  E  I  O
+Z  X  C  D  V     K  H  ,  .  /
+   HYPR ESC       ENT SYM
+```
 
-* The homing left ring finger gives access to the Function keys layer
-* The homing right ring finger gives access to the Numbers layer
-* The homing left middle finger gives access to the Mouse layer
-* The homing right middle finger gives access to the Navigation layer
-* The homing left index finger gives access to the Right symbols layer
-* The homing right index finger gives access to the Left symbols layer
-* The homing right thumb gives access to the Always accessible layer
+The base layer uses **Colemak DH** for improved typing comfort and efficiency. Key features:
 
-### Layer 1: Mouse
+**Mod-tap keys:**
 
-![Layer 1](https://i.imgur.com/0fvTuB9.png)
+-   `S` (Alt when held)
+-   `T` (Cmd/GUI when held)
+-   `N` (Cmd/GUI when held)
+-   `E` (Alt when held)
 
-Layer 1 is a mouse layer: it can be used one-handed or two-handed. The most common way to use it is two handed, with left and right click on the homerow of the left hand and directions on the homerow of the right hand.
-Scrolling is available on the right hand with mid finger up and down for vertical scroll and index and ring finger down for horizontal scroll.
-On the right hand, left click and right click are also available with index and ring finger up to allow one handed operation. This can be particularly handy when enabling the mouse layer permanently (no need to hold the left middle finger), which can be done from Layer 7.
+**Thumb keys:**
 
-Note that thanks to the transparency, shift, ctrl and alt are all accessible on the left hand while operating the mouse.
+-   Left inner: `Space` (Hyper when held)
+-   Left outer: `Escape` (Ctrl when held)
+-   Right inner: `Enter` (Shift when held)
+-   Right outer: Toggle to Symbol layer
 
-### Layer 2: Navigation
+**Tap dance keys** (bottom row right):
 
-![Layer 2](https://i.imgur.com/ZquQJRq.png)
+-   `,` key: Tap for comma, hold for minus, double/triple tap for multiple commas
+-   `.` key: Tap for period, hold for exclamation, double/triple tap for multiple periods
+-   `/` key: Tap for slash, hold for underscore, double/triple tap for multiple slashes
 
-The navigation layer somewhat mirrors the mouse layer. It is accessed by holding the right middle finger and gives access to arrow keys on the left homerow. Page up and down, Home and End mirror the vertical scrolling and horizontal scrolling on the mouse layer.
+### Layer 1: Symbols (SYM)
 
-On the right hand, in addition to ctrl and alt which are available through transparency, ctrl + alt, ctrl + alt + shift and meta are accessible on the homerow to enable common shortcuts in some window managers. This part is quite workflow dependent, so make sure to adapt it to your own workflow as appropriate.
+```
+ESC $  %  +  #     ^  !  &  |  BSPC
+TAB -  =  "  `     \  {  }  *  ENT
+CAP ;  :  '  @     [  (  )  ]  NAV
+    BASE SPC       SFT NUM
+```
 
-### Layer 3: Right symbols
+Comprehensive symbol layer optimized for programming. Brackets and braces are positioned for easy access, with the most common ones (`{}`, `()`) on the home row.
 
-![Layer 3](https://i.imgur.com/9tLAUqG.png)
+**Navigation:**
 
-When holding down the left index, one may access about half of the symbols. The pinkies store `^` and `$` symbols that represent begin and end in vim. The left homerow hosts `*` and `&`, symbols which are related in the way that they represent some form of indirection in programming languages such as rust. On the right hand, most symbols used when navigating the command line are stored together, organized by columns of related symbols. 
+-   Toggle to BASE layer (left thumb inner)
+-   Toggle to NUM layer (right thumb outer)
+-   Toggle to NAV layer (right thumb bottom row)
 
-### Layer 4: Left symbols
+### Layer 2: Numbers (NUM)
 
-![Layer 4](https://i.imgur.com/CkjUSW6.png)
+```
+ESC BRD+ BRI+ VOL- VOL+    %  7  8  9  BSPC
+TAB PLAY +   -    .        =  4  5  6  ENT
+P/N MUTE *   /    SHOT     0  1  2  3  NAV
+    BASE SPC              SFT SYM
+```
 
-When holding down the right index, one may access the other symbols. On the left hand, most of the different brackets are laid out. The most frequent ones (round brackets and curly brackets) get a spot on the homerow. The rest of the layer hosts the remaining symbols that are easier to access here than on any other layers.
+Number layer with integrated media controls and mathematical operators:
 
-### Layer 5: Function keys
+**Left side - Media & System:**
 
-![Layer 5](https://i.imgur.com/fWgVqc4.png)
+-   Top row: Brightness and volume controls
+-   Home row: Media playback, mathematical operators
+-   Bottom row: Previous/Next track (tap dance), mute, screenshot app
 
-By holding down the left ring finger, one may access the function keys, roughly in a numpad layout.
-This means that alt+F4 is easy to type, with F4 being on the homerow.
-There is a shortcut for ctrl+alt on the left hand to enable convenient switching between virtual terminals on Linux.
+**Right side - Numbers:**
 
-### Layer 6: Numbers
+-   Numbers 0-9 in a logical numpad-style layout
+-   0 positioned at bottom left for thumb access
+-   Common operators (%, =) for calculations
 
-![Layer 6](https://i.imgur.com/S8gq9Kj.png)
+**Tap dance:**
 
-The number layer is accessed by holding the right ring finger. It hosts the numbers and some duplicated symbols that are commonly accessed next to numbers, such as mathematical operators.
-The number are layed out similarly to a numpad, but with the middle row and the homerow swapped so that the most used numbers: 0, 1, 2 and 3 are all available in homing positions. 
+-   Bottom left key: Tap for next track, double tap for previous track
 
-### Layer 7: Always accessible
+### Layer 3: Navigation (NAV)
 
-![Layer 7](https://i.imgur.com/twqBeBb.png)
+```
+BACK FWD  TABL TABR ___     ___  WH_D WH_U ___  BSPC
+OSFT OCTL OALT OGUI ___     LEFT DOWN UP   RGHT ENT
+___  WSWT ___  ___  SHOT    HOME ___  ___  END  OTHR
+     BASE SPC              TAB  NUM
+```
 
-Layer 7 is accessed by holding the right homing thumb down. Because this position is left transparent from every other layer, this layer is always accessible.
-It gives access to some essential keys that would typically be accessed on a thumb cluster or pinkies, such as meta, enter, tab, esc and delete.
+Navigation layer optimized for both web browsing and system navigation:
 
-As the layer hosting esc, we duplicated some symbols here to allow for fast navigation in vim. For instance, esc, :, w, q can be done in a single roll.
+**Left side - Browser & Modifiers:**
 
-Where is the keymap.c?
-----------------------
+-   Top row: Browser back/forward, tab switching (Ctrl+Tab, Ctrl+Shift+Tab)
+-   Home row: One-shot modifiers (Shift, Ctrl, Alt, GUI) for easy combinations
+-   Bottom row: Window switching (Cmd+`), screenshot app
 
-The keymap.c file is not published to the repository. It is generated from `keymap.json` by the build system.
+**Right side - Cursor & Scrolling:**
 
-This avoids duplicating information and allow users to edit their keymap from the qmk configurator web interface.
+-   Arrow keys on home row for comfortable navigation
+-   Mouse wheel controls
+-   Home/End keys for line navigation
 
-How do I edit and update the keymap?
-------------------------------------
+**Navigation:**
 
-The `keymap.json` file is generated from the qmk configurator interface and formatted for better readability in the context of the Ferris keyboard.
+-   Toggle to OTHER layer (bottom right corner)
+-   Toggle to NUM layer (right thumb)
 
-To edit it, you may:
-* Edit it directly from a text editor.
-* Edit it from the qmk configurator.
+### Layer 4: Other (OTHR)
 
-If you decide to use the latter workflow, here are the steps to follow:
+```
+___  BOOT ___  ___  ___     ___  ___  ___  ___  ___
+___  ___  ___  ___  ___     ___  ___  ___  ___  ___
+___  CMBO ___  ___  ___     ___  ___  ___  ___  ___
+     BASE OSFT             ORCT SYM
+```
 
-* From the qmk configurator, hit the "import QMK keymap json file" button (it has a drawing with an up arrow on it).
-* Browse to the location of your keymap (for example, `<your qmk repo>/keyboards/ferris/keymaps/default/keymap.json`)
-* Perform any modification to the keymap in the web UI
-* Export the keymap to your downloads folder, by hitting the "Export QMK keymap json file" button (it has a drawing with a down arrow on it)
-* Override your original keymap with the output of formatting the exported keymap by running a command such as this one from the root of your qmk repo:
-  ```
-  ./keyboards/handwired/ferris/keymaps/json2crab.py --input <Your download directory>/default.json > ./keyboards/handwired/ferris/keymaps/default/keymap.json
-  ```
-  Note that you may first need to make json2crab executable by using `chmod +x` on it.
-  Also note that you may then want to remove the exported keymap from your dowload directory.
+System and configuration layer:
+
+**Key functions:**
+
+-   `BOOT`: Enter bootloader mode for firmware updates
+-   `CMBO`: Toggle combo mode on/off
+-   Various one-shot modifiers for system shortcuts
+
+This layer is only accessible from the NAV layer and provides system-level functions.
+Special Features
+================
+
+### Tap Dance Keys
+
+This keymap includes several tap dance implementations:
+
+1. **Period/Exclamation (.)**:
+
+    - Single tap: `.`
+    - Hold: `!`
+
+2. **Comma/Minus (,)**:
+
+    - Single tap: `,`
+    - Hold: `-`
+
+3. **Slash/Underscore (/)**:
+
+    - Single tap: `/`
+    - Hold: `_`
+
+4. **Media Controls (Previous/Next)**:
+    - Single tap: Next track
+    - Double tap: Previous track
+
+### Key Combos
+
+Three useful combos are implemented:
+
+1. **L + U**: Types `:` (colon) - useful for vim commands
+2. **F + P**: Executes vim save (`:w⏎`) - quick save in vim
+3. **C + D**: Types `Tab` - alternative tab access
+
+### macOS Integration
+
+The keymap includes several macOS-specific shortcuts:
+
+-   **SC_SHOT**: `Cmd+Shift+4` (area screenshot)
+-   **SC_SHOT_APP**: `Cmd+Shift+5` (screenshot app)
+-   **WINDOW_SWITCH**: `Cmd+`` (switch between windows of same app)
+-   **TAB_R/TAB_L**: `Ctrl+Tab` / `Ctrl+Shift+Tab` (browser tab switching)
+-   **BR_BACK/BR_FWD**: `Cmd+Left` / `Cmd+Right` (browser navigation)
+
+### Timing Configuration
+
+The keymap uses custom timing settings optimized for comfort:
+
+-   **Tapping term**: 240ms (defined in `config.h`)
+-   **Retro tapping**: Enabled for better mod-tap behavior
+-   **Combo term**: 50ms for quick combo recognition
+-   **Combo count**: 3 combos total
+
+### Building and Flashing
+
+To compile this keymap:
+
+```bash
+# From your QMK root directory
+qmk compile -kb ferris/0_1 -km rpallas1
+```
+
+To flash the keyboard:
+
+```bash
+# Put keyboard in bootloader mode first, then:
+qmk flash -kb ferris/sweep -km rpallas1 -e CONVERT_TO=promicro_rp2040
+```
+
+### Customization
+
+This keymap is designed around a specific workflow but can be easily modified:
+
+1. **Layer adjustments**: Modify the layer arrays in `keymap.c`
+2. **Timing tweaks**: Adjust values in `config.h`
+3. **Combo changes**: Update the combo definitions and arrays
+4. **macOS vs other OS**: Replace macOS shortcuts with OS-appropriate equivalents
+
+The keymap prioritizes programming efficiency, vim usage, and macOS integration while maintaining the comfort benefits of the Colemak DH layout on a compact 34-key board.
